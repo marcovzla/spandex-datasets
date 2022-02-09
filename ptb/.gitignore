@@ -1,9 +1,9 @@
-text/
+brat/
 pos/
+bracketed/
 conllx/
 stanford-parser-full-2013-11-12/
 stanford-parser-full-2013-11-12.zip
 treebank_3
 treebank_3_LDC99T42.tgz
 TreebankPreprocessing/
-
