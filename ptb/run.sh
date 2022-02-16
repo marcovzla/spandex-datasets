@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+eval "$(conda shell.bash hook)"
+conda activate datasets3
 # clone TreebankPreprocessing repo
 git clone https://github.com/hankcs/TreebankPreprocessing.git
 # get stanford parser and copy it to TreebankPreprocessing
@@ -41,3 +43,5 @@ mkdir -p brat/pos/test
 python tsv2brat.py --inp pos/train.tsv --out brat/pos/train/
 python tsv2brat.py --inp pos/dev.tsv --out brat/pos/dev/
 python tsv2brat.py --inp pos/test.tsv --out brat/pos/test/
+
+conda deactivate
