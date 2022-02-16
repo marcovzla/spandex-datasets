@@ -1,0 +1,5 @@
+brat/
+naacl-mpqa-srl4orl/
+glove.6B.*
+glove_model.txt
+embeddings/glove/glove_100_w2vformat.txt
