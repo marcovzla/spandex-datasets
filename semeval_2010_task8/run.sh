@@ -13,5 +13,5 @@ eval "$(conda shell.bash hook)"
 conda activate datasets3
 python raw2brat.py --inp SemEval2010_task8_all_data/SemEval2010_task8_training/TRAIN_FILE.TXT --out brat/train/
 python raw2brat.py --inp SemEval2010_task8_all_data/SemEval2010_task8_testing_keys/TEST_FILE_FULL.TXT --out brat/test
-python ../split.py --inp brat/train/ --out brat/dev/ --ratio 0.2
+python split.py --inp brat/train/ --out brat/dev/ --ratio 0.2
 conda deactivate
