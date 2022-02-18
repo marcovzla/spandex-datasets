@@ -5,10 +5,8 @@ eval "$(conda shell.bash hook)"
 conda activate datasets3
 # clone TreebankPreprocessing repo
 git clone https://github.com/hankcs/TreebankPreprocessing.git
-# get stanford parser and copy it to TreebankPreprocessing
-wget https://nlp.stanford.edu/software/stanford-parser-full-2013-11-12.zip
-unzip stanford-parser-full-2013-11-12.zip
-cp stanford-parser-full-2013-11-12/stanford-parser*.jar TreebankPreprocessing/
+# copy stanford parser to TreebankPreprocessing
+cp ../utils/stanford-parser*.jar TreebankPreprocessing/
 # copy treebank to nltk's data directory
 tar xzvf treebank_3_LDC99T42.tgz
 cp -R treebank_3/parsed/mrg/wsj/ $HOME/nltk_data/corpora/ptb/WSJ
