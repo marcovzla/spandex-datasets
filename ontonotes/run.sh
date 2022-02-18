@@ -11,12 +11,26 @@ conda activate datasets2
 ./skeleton2conll.sh -D ontonotes-release-5.0/data/files/data conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0
 conda deactivate
 
-mkdir -p brat/pos/train
-mkdir -p brat/pos/dev
-mkdir -p brat/pos/test
+# conll_pos_2012
+
+mkdir -p brat/conll_pos_2012/train
+mkdir -p brat/conll_pos_2012/dev
+mkdir -p brat/conll_pos_2012/test
 
 conda activate datasets3
-python conll2brat.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/train/data/ --out brat/pos/train/ --filter conll12_ids/train.id
-python conll2brat.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/development/data/ --out brat/pos/dev/ --filter conll12_ids/development.id
-python conll2brat.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/test/data/ --out brat/pos/test/ --filter conll12_ids/test.id
+python conll2brat_pos.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/train/data/ --out brat/conll_pos_2012/train/ --filter conll12_ids/train.id
+python conll2brat_pos.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/development/data/ --out brat/conll_pos_2012/dev/ --filter conll12_ids/development.id
+python conll2brat_pos.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/test/data/ --out brat/conll_pos_2012/test/ --filter conll12_ids/test.id
+conda deactivate
+
+# conll_srl_2012
+
+mkdir -p brat/conll_srl_2012/train
+mkdir -p brat/conll_srl_2012/dev
+mkdir -p brat/conll_srl_2012/test
+
+conda activate datasets3
+python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/train/data/ --out brat/conll_srl_2012/train/ --filter conll12_ids/train.id
+python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/development/data/ --out brat/conll_srl_2012/dev/ --filter conll12_ids/development.id
+python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/test/data/ --out brat/conll_srl_2012/test/ --filter conll12_ids/test.id
 conda deactivate
