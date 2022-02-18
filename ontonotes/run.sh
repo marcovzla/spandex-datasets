@@ -34,3 +34,22 @@ python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-
 python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/development/data/ --out brat/conll_srl_2012/dev/ --filter conll12_ids/development.id
 python conll2brat_srl.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/test/data/ --out brat/conll_srl_2012/test/ --filter conll12_ids/test.id
 conda deactivate
+
+# conll_coref_2012
+
+mkdir -p brat/conll_coref_2012/train
+mkdir -p brat/conll_coref_2012/dev
+mkdir -p brat/conll_coref_2012/test
+
+conda activate datasets2
+./compile_coref_data.sh ontonotes-release-5.0
+conda deactivate
+
+mkdir conll
+mv *.english.v4_gold_conll conll
+
+conda activate datasets3
+python conll2brat_coref.py --inp conll/train.english.v4_gold_conll --out brat/conll_coref_2012/train
+python conll2brat_coref.py --inp conll/dev.english.v4_gold_conll --out brat/conll_coref_2012/dev
+python conll2brat_coref.py --inp conll/test.english.v4_gold_conll --out brat/conll_coref_2012/test
+conda deactivate
