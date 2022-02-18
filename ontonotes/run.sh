@@ -53,3 +53,27 @@ python conll2brat_coref.py --inp conll/train.english.v4_gold_conll --out brat/co
 python conll2brat_coref.py --inp conll/dev.english.v4_gold_conll --out brat/conll_coref_2012/dev
 python conll2brat_coref.py --inp conll/test.english.v4_gold_conll --out brat/conll_coref_2012/test
 conda deactivate
+
+# conll_dep_2012
+
+conda activate datasets3
+
+mkdir bracketed
+python conll2tree.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/train/data/ --out bracketed/train.txt --filter conll12_ids/train.id
+python conll2tree.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/development/data/ --out bracketed/dev.txt --filter conll12_ids/development.id
+python conll2tree.py --inp conll-formatted-ontonotes-5.0-12/conll-formatted-ontonotes-5.0/data/test/data/ --out bracketed/test.txt --filter conll12_ids/test.id
+
+mkdir conllx
+java -cp ../utils/stanford-parser.jar -mx1g edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile bracketed/train.txt > conllx/train.conllx
+java -cp ../utils/stanford-parser.jar -mx1g edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile bracketed/dev.txt > conllx/dev.conllx
+java -cp ../utils/stanford-parser.jar -mx1g edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile bracketed/test.txt > conllx/test.conllx
+
+mkdir -p brat/conll_dep_2012/train
+mkdir -p brat/conll_dep_2012/dev
+mkdir -p brat/conll_dep_2012/test
+
+python conllXtostandoff.py -o brat/conll_dep_2012/train conllx/train.conllx sent:50
+python conllXtostandoff.py -o brat/conll_dep_2012/dev conllx/dev.conllx sent:50
+python conllXtostandoff.py -o brat/conll_dep_2012/test conllx/test.conllx sent:50
+
+conda deactivate
