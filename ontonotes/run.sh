@@ -77,3 +77,17 @@ python conllXtostandoff.py -o brat/conll_dep_2012/dev conllx/dev.conllx sent:50
 python conllXtostandoff.py -o brat/conll_dep_2012/test conllx/test.conllx sent:50
 
 conda deactivate
+
+# conll_const_2012
+
+conda activate datasets3
+
+mkdir -p brat/conll_const_2012/train
+mkdir -p brat/conll_const_2012/dev
+mkdir -p brat/conll_const_2012/test
+
+python bracketed2brat.py --inp bracketed/train.txt --out brat/conll_const_2012/train --num_sent 50
+python bracketed2brat.py --inp bracketed/dev.txt --out brat/conll_const_2012/dev --num_sent 50
+python bracketed2brat.py --inp bracketed/test.txt --out brat/conll_const_2012/test --num_sent 50
+
+conda deactivate
