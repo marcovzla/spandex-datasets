@@ -1,4 +1,4 @@
-# Datasets
+# spandex-datasets
 
 8 datasets consisting of annotations of 10 tasks are included in this repository.
 
