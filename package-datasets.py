@@ -30,7 +30,7 @@ for name, path in datasets.items():
     shutil.copytree(path, outdir/name)
 
 print('packaging datasets')
-archive_name = shutil.make_archive('datasets', 'zip', outdir)
+archive_name = shutil.make_archive('spandex-datasets', 'zip', outdir)
 
 print('deleting files')
 shutil.rmtree(outdir)
