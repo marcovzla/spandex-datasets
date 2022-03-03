@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
+datafile=SemEval2010_task8_all_data.zip
+
+if [ ! -f $datafile ]; then
+    echo "file not found: $datafile"
+    exit 1
+fi
+
 # download data from google drive
-gdown.pl "https://drive.google.com/file/d/0B_jQiLugGTAkMDQ5ZjZiMTUtMzQ1Yy00YWNmLWJlZDYtOWY1ZDMwY2U4YjFk/view?usp=sharing" SemEval2010_task8_all_data.zip
-unzip SemEval2010_task8_all_data.zip
+# gdown.pl "https://drive.google.com/file/d/0B_jQiLugGTAkMDQ5ZjZiMTUtMzQ1Yy00YWNmLWJlZDYtOWY1ZDMwY2U4YjFk/view?usp=sharing" SemEval2010_task8_all_data.zip
+unzip $datafile
 
 mkdir -p brat/train
 mkdir -p brat/dev
