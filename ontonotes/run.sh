@@ -3,8 +3,15 @@ set -e
 
 eval "$(conda shell.bash hook)"
 
+datafile=ontonotes-release-5.0_LDC2013T19.tgz
+
+if [ ! -f $datafile ]; then
+    echo "file not found: $datafile"
+    exit 1
+fi
+
 # prepare ontonotes according to https://cemantix.org/data/ontonotes.html
-tar xzvf ontonotes-release-5.0_LDC2013T19.tgz
+tar xzvf $datafile
 wget https://github.com/ontonotes/conll-formatted-ontonotes-5.0/archive/refs/tags/v12.tar.gz
 tar xzvf v12.tar.gz
 conda activate datasets2
