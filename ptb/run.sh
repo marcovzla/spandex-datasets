@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
+datafile=treebank_3_LDC99T42.tgz
+
+if [ ! -f $datafile ]; then
+    echo "file not found: $datafile"
+    exit 1
+fi
+
 eval "$(conda shell.bash hook)"
 conda activate datasets3
 # clone TreebankPreprocessing repo
@@ -8,7 +15,7 @@ git clone https://github.com/hankcs/TreebankPreprocessing.git
 # copy stanford parser to TreebankPreprocessing
 cp ../utils/stanford-parser*.jar TreebankPreprocessing/
 # copy treebank to nltk's data directory
-tar xzvf treebank_3_LDC99T42.tgz
+tar xzvf $datafile
 cp -R treebank_3/parsed/mrg/wsj/ $HOME/nltk_data/corpora/ptb/WSJ
 cp -R treebank_3/parsed/mrg/brown/ $HOME/nltk_data/corpora/ptb/BROWN
 # rename all files to uppercase
