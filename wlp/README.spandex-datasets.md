@@ -1,9 +1,3 @@
-# WLP-Dataset
-
-A collection of 622 wet lab protocols, annotated with actions, entities and relations all captured within a given sentence.
-
-URL: https://github.com/chaitanya2334/WLP-Dataset
-
 # BibTeX
 
     @inproceedings{kulkarni-etal-2018-annotated,
