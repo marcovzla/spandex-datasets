@@ -50,3 +50,7 @@ python tsv2brat.py --inp pos/dev.tsv --out brat/pos/dev/
 python tsv2brat.py --inp pos/test.tsv --out brat/pos/test/
 
 conda deactivate
+
+cp README.spandex-datasets.md brat/bracketed
+cp README.spandex-datasets.md brat/conllx
+cp README.spandex-datasets.md brat/pos

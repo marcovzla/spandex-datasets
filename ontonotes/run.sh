@@ -98,3 +98,9 @@ python bracketed2brat.py --inp bracketed/dev.txt --out brat/conll_const_2012/dev
 python bracketed2brat.py --inp bracketed/test.txt --out brat/conll_const_2012/test --num_sent 50
 
 conda deactivate
+
+cp README.spandex-datasets.md brat/conll_const_2012
+cp README.spandex-datasets.md brat/conll_coref_2012
+cp README.spandex-datasets.md brat/conll_dep_2012
+cp README.spandex-datasets.md brat/conll_pos_2012
+cp README.spandex-datasets.md brat/conll_srl_2012

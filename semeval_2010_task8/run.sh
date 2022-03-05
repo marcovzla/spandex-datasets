@@ -22,3 +22,5 @@ python raw2brat.py --inp SemEval2010_task8_all_data/SemEval2010_task8_training/T
 python raw2brat.py --inp SemEval2010_task8_all_data/SemEval2010_task8_testing_keys/TEST_FILE_FULL.TXT --out brat/test
 python split.py --inp brat/train/ --out brat/dev/ --ratio 0.2
 conda deactivate
+
+README.spandex-datasets.md brat/

@@ -16,3 +16,5 @@ python conll2brat.py --inp oie_rank/data/train --out brat/train --merge
 python conll2brat.py --inp oie_rank/data/dev --out brat/dev --merge
 python conll2brat.py --inp oie_rank/data/test --out brat/test --merge
 conda deactivate
+
+cp README.spandex-datasets.md brat/

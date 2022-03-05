@@ -32,3 +32,5 @@ python pkl2brat.py --inp naacl-mpqa-srl4orl/prep/dev.pkl:naacl-mpqa-srl4orl/prep
 python pkl2brat.py --inp naacl-mpqa-srl4orl/prep/test.pkl:naacl-mpqa-srl4orl/prep/vocab.pkl --out brat/test
 
 conda deactivate
+
+cp README.spandex-datasets.md brat/

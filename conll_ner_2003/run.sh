@@ -16,3 +16,5 @@ python conll02tostandoff.py -o brat/dev tagger/dataset/eng.testa
 python conll02tostandoff.py -o brat/test tagger/dataset/eng.testb
 
 conda deactivate
+
+cp README.spandex-datasets.md brat/
